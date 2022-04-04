@@ -9,10 +9,12 @@
 <div class="col-3">
     <form method="post">
         {% csrf_token %}
-
         {{ form|crispy }}
+
+        <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
         <button class="btn btn-success mt-3" type="submit">Log In</button>
 
     </form>
 </div>
+
 {% endblock content %}
