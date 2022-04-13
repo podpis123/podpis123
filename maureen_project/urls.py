@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView
+from rest_framework.documentation import include_docs_urls
+from rest_framework.schemas import get_schema_view
+
+api_docs = include_docs_urls(title='Maurren API', description="Signig web portal.")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('articles/', include('articles.urls')),
-    path('', include('pages.urls'))
+    path('api/v1/articles/', include('articles.api_urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/docs/', api_docs, name='api_docs'),
+    path('api/v1/schema/', get_schema_view(), name='api_schema'),
+    path('', include('pages.urls')),
 ]
