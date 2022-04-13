@@ -1,8 +1,10 @@
-<header class="p-3 mb-3 border-bottom">
+<header class="py-3 my-5 border-bottom">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a class="navbar-brand" href="{% url 'home' %}">Maureen</a>
+        <a class="navbar-brand d-flex align-items-center text-dark text-decoration-none" href="{% url 'home' %}">
+                <span class="fs-4">Maureen</span>
+        </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
             <li><a href="{% url 'article_new' %}" class="nav-link px-2 link-dark">+ New</a></li>
         </ul>
         <div class="dropdown text-end">
@@ -15,12 +17,12 @@
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
             </ul>
         </div>
-    {% else %}
+        {% else %}
         </ul>
         <div class="text-end">
             <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Log In</a>
             <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
         </div>
-    {% endif %}
+        {% endif %}
     </div>
 </header>
