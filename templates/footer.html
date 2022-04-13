@@ -1,0 +1,40 @@
+<footer class="py-3 mt-5">
+    <div class="row">
+
+        <div class="col-2">
+            <h5>Maureen</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="{% url 'article_list' %}" class="nav-link p-0 text-muted">Articles</a></li>
+                <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col-2">
+            <h5>Account</h5>
+            <ul class="nav flex-column">
+                {% if user.is_authenticated %}
+                    <li class="nav-item mb-2"><a href="{% url 'password_change' %}" class="nav-link p-0 text-muted">Change password</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">Log Out</a></li>
+                {% else %}
+                    <li class="nav-item mb-2"><a href="{% url 'login' %}" class="nav-link p-0 text-muted">Log In</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'signup' %}" class="nav-link p-0 text-muted">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="col-2">
+            <h5>Rest API</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="{% url 'api_schema' %}" class="nav-link p-0 text-muted">Schema</a></li>
+                <li class="nav-item mb-2"><a href="{% url 'api_article_list' %}" class="nav-link p-0 text-muted">Articles</a></li>
+                <li class="nav-item mb-2"><a href="/api/v1/docs" class="nav-link p-0 text-muted">Documentation</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-between py-4 my-4 border-top">
+        <p>© 2021 Maureen</p>
+    </div>
+</footer>
