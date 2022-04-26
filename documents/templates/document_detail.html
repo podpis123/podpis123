@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+<div class="document-entry">
+    <p>by {{ object.owner }} | {{ object.created_at }}</p>
+    <p>{{ object.description }}</p>
+</div>
+
+<p>
+    <a href="{% url 'document_edit' document.pk %}">Edit</a> |
+    <a href="{% url 'document_delete' document.pk %}">Delete</a>
+</p>
+{% endblock content %}
